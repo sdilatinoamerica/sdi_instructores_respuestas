@@ -28,55 +28,68 @@
         let recordingStartTime = 0; // Nuevo: Para calcular duración real
 
         async function startTestimonials() {
-            // Validate form
-            const name = document.getElementById('instructorName').value.trim();
-            
-            if (!name ) {
-                alert('Por favor completa al menos tu nombr para continuar.');
+            // Leer valores del formulario de forma segura (centerName NO obligatorio)
+            const nameEl = document.getElementById('instructorName');
+            const centerEl = document.getElementById('diveCenterName');
+            const emailEl = document.getElementById('instructorEmail');
+            const phoneEl = document.getElementById('instructorPhone');
+            const locationEl = document.getElementById('instructorLocation');
+            const instagramEl = document.getElementById('instagramHandle');
+
+            const name = nameEl ? nameEl.value.trim() : '';
+            const centerName = centerEl ? centerEl.value.trim() : ''; // opcional
+            const email = emailEl ? emailEl.value.trim() : '';
+            const phone = phoneEl ? phoneEl.value.trim() : '';
+            const location = locationEl ? locationEl.value.trim() : '';
+            const instagram = instagramEl ? instagramEl.value.trim() : '';
+
+            // Validación mínima: solo nombre obligatorio
+            if (!name) {
+                alert('Por favor completa al menos tu nombre para continuar.');
+                nameEl && nameEl.focus();
                 return;
             }
-            
+
             instructorData = {
                 name: name,
                 centerName: centerName,
-                email: document.getElementById('instructorEmail').value.trim(),
-                phone: document.getElementById('instructorPhone').value.trim(),
-                location: document.getElementById('instructorLocation').value.trim(),
-                instagram: document.getElementById('instagramHandle').value.trim(),
+                email: email,
+                phone: phone,
+                location: location,
+                instagram: instagram,
                 timestamp: new Date().toISOString(),
                 sessionId: generateSessionId()
             };
-            
+
             // Save instructor data to "database"
             saveInstructorData(instructorData);
-            
+
             try {
                 // Request camera access
-                stream = await navigator.mediaDevices.getUserMedia({ 
-                    video: { 
-                        width: { ideal: 1280 }, 
+                stream = await navigator.mediaDevices.getUserMedia({
+                    video: {
+                        width: { ideal: 1280 },
                         height: { ideal: 720 },
                         facingMode: 'user'
-                    }, 
-                    audio: true 
+                    },
+                    audio: true
                 });
-                
+
                 document.getElementById('welcomeScreen').style.display = 'none';
                 document.getElementById('questionScreen').style.display = 'block';
-                
+
                 const videoPreview = document.getElementById('videoPreview');
-                videoPreview.srcObject = stream;
-                
+                if (videoPreview) videoPreview.srcObject = stream;
+
                 showQuestion(0);
-                
+
             } catch (err) {
                 console.error('Error accessing camera:', err);
                 alert('Error al acceder a la cámara. Por favor, permite el acceso a la cámara y micrófono e intenta de nuevo.');
             }
+
             document.getElementById('questionScreen').style.display = 'block';
             window.scrollTo(0, 0);
-
-
         }
 
         function generateSessionId() {
