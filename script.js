@@ -31,7 +31,7 @@
             // Validate form
             const name = document.getElementById('instructorName').value.trim();
             
-            if (!name || !centerName) {
+            if (!name ) {
                 alert('Por favor completa al menos tu nombr para continuar.');
                 return;
             }
