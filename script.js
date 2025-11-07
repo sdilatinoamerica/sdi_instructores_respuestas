@@ -30,10 +30,9 @@
         async function startTestimonials() {
             // Validate form
             const name = document.getElementById('instructorName').value.trim();
-            const centerName = document.getElementById('diveCenterName').value.trim();
             
             if (!name || !centerName) {
-                alert('Por favor completa al menos tu nombre y el nombre del centro de buceo.');
+                alert('Por favor completa al menos tu nombr para continuar.');
                 return;
             }
             
@@ -74,6 +73,10 @@
                 console.error('Error accessing camera:', err);
                 alert('Error al acceder a la cámara. Por favor, permite el acceso a la cámara y micrófono e intenta de nuevo.');
             }
+            document.getElementById('questionScreen').style.display = 'block';
+            window.scrollTo(0, 0);
+
+
         }
 
         function generateSessionId() {
