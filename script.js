@@ -1,12 +1,12 @@
 
         const questions = [
-            "Queremos que te presentes: Te proponemos. 'Hola, soy [tu nombre], instructor SDI en [nombre del centro de buceo], y te quiero dar la bienvenida a #OneDiveFamily'",
-            "¿Desde dónde estás buceando y trabajando? (Mencionar país, ciudad y el centro de buceo]",
+            "Presentate de esta forma: 'Hola, soy [tu nombre], instructor SDI en [nombre del centro de buceo], y te quiero dar la bienvenida a #OneDiveFamily'",
+            "¿Dónde estás buceando y trabajando? (Mencionar país, ciudad y el centro de buceo]",
             "¿Por qué elegiste a SDI para tu carrera profesional y qué diferencia hace en tu enseñanza",
-            "¿Qué significa para ti el eslogan 'One Dive Family' de SDI?",
-            "¿Cuál es el curso de SDI que más disfrutas enseñar y por qué?",
+            "¿Qué significa para vos el eslogan 'One Dive Family' de SDI?",
+            "¿Cuál es el curso de SDI que más disfrutás enseñar y por qué?",
             "¿Cuál es tu certificación SDI/TDI/ERDI de mayor nivel y en qué área te destacas más como mentor/entrenador?",
-            "¿Cuál ha sido el momento más gratificante o desafiante que has tenido mientras enseñabas un curso de SDI?",
+            "¿Cuál ha sido el momento más desafiante que has tenido mientras enseñabas un curso de SDI?",
             "¿Qué consejo le darías a alguien que está pensando en convertirse en Instructor SDI o en alcanzar su nivel más alto?",
             "¿Qué mensaje le darías a alguien que está pensando en venir a bucear con vos?",
             "En una frase: ¿qué significa para vos ser instructor SDI?"
